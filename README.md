@@ -69,6 +69,14 @@ RETURN rec.title
 
 Demonstrar como a modelagem em grafos pode ser utilizada para representar dados complexos e apoiar sistemas de recomendação em plataformas de streaming.
 
+
+
+## Modelo do Grafo
+
+O diagrama abaixo representa o modelo de dados utilizado no projeto.
+
+![Modelo do Grafo](images/graph_model.png)
+
 ---
 
 ## Autor
