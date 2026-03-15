@@ -82,3 +82,29 @@ O diagrama abaixo representa o modelo de dados utilizado no projeto.
 ## Autor
 
 Projeto desenvolvido como atividade de modelagem de banco de dados em grafos utilizando Neo4j.
+
+
+
+## Queries de Negócio
+
+O modelo foi testado com algumas consultas que simulam funcionalidades de um sistema de recomendação.
+
+### 1. Filmes mais bem avaliados
+
+Consulta que retorna os filmes com maior média de avaliação dos usuários.
+
+### 2. Recomendação baseada em histórico
+
+Busca filmes assistidos por usuários que também assistiram determinado título.
+
+### 3. Filmes por gênero
+
+Permite listar filmes pertencentes a um gênero específico.
+
+### 4. Filmes de um ator
+
+Consulta que retorna todos os filmes de um determinado ator.
+
+### 5. Filmes por diretor
+
+Lista diretores e seus respectivos filmes.
