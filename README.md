@@ -10,7 +10,7 @@ Bancos de dados em grafos são especialmente eficientes para esse tipo de aplica
 
 ---
 
-## Tecnologias Utilizadas
+## Linguagens Utilizadas
 
 - Neo4j
 - Linguagem Cypher
