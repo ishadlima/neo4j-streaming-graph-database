@@ -106,7 +106,7 @@ Through this project, I practiced:
 
 The following diagram represents the data model used in the project.
 
-![Graph Model](images/graph_model.png)
+![Database Model](images/database-model.png)
 
 ## Project Context
 
