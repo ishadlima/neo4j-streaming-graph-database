@@ -1,110 +1,121 @@
-# Streaming Graph Database - Neo4j
+# Streaming Graph Database — Neo4j
 
-## Descrição do Projeto
+> Bootcamp project focused on graph database modeling and Cypher queries.
 
-Este projeto apresenta a modelagem de um banco de dados em grafos para um serviço de streaming de filmes e séries utilizando o Neo4j.
+## About the Project
 
-O objetivo é representar relacionamentos entre usuários, filmes, séries, atores, diretores e gêneros para possibilitar análises de relacionamento e futuros sistemas de recomendação.
+This project presents the modeling of a **graph database for a movie and TV series streaming service using Neo4j**.
 
-Bancos de dados em grafos são especialmente eficientes para esse tipo de aplicação, pois permitem explorar conexões entre entidades de forma mais natural do que bancos relacionais tradicionais.
+The goal is to represent relationships between users, movies, series, actors, directors, and genres, creating a data structure that can support relationship analysis and recommendation use cases.
 
----
+This project was developed as a practical learning activity during a **DIO bootcamp**, with a focus on graph data modeling and Cypher queries.
 
-## Linguagens Utilizadas
+## Technologies
 
-- Neo4j
-- Linguagem Cypher
-- Modelagem de grafos
+* Neo4j
+* Cypher
+* Graph Data Modeling
 
----
+## Graph Model
 
-## Entidades do Grafo (Nodes)
+The database contains the following node types:
 
-O modelo inclui os seguintes nós:
+* `User`
+* `Movie`
+* `Series`
+* `Genre`
+* `Actor`
+* `Director`
 
-- User
-- Movie
-- Series
-- Genre
-- Actor
-- Director
+### Relationships
 
----
+The main relationships in the graph include:
 
-## Relacionamentos (Relationships)
+* `WATCHED` — connects users to movies or series and includes a `rating` property.
+* `ACTED_IN` — connects actors to movies or series.
+* `DIRECTED` — connects directors to movies or series.
+* `IN_GENRE` — connects movies or series to their respective genres.
 
-Os relacionamentos entre os nós são:
+## Repository Structure
 
-- WATCHED → relação entre usuário e filme/série com propriedade **rating**
-- ACTED_IN → ator que participou de um filme ou série
-- DIRECTED → diretor responsável pelo filme ou série
-- IN_GENRE → gênero do filme ou série
+```text
+data/
+└── Dataset used in the project
 
----
+scripts/
+└── setup_database.cypher
+    Script used to create nodes, relationships, and constraints
 
-## Estrutura do Repositório
+queries/
+└── queries_examples.cypher
+    Examples of Cypher queries used to explore the graph
 
-dados/ → dataset utilizado no projeto  
+images/
+└── graph_model.png
+    Graph data model diagram
+```
 
-scripts/setup_database.cypher → script responsável por criar os nós, relacionamentos e constraints no banco  
+## Example Query
 
-queries/queries_examples.cypher → exemplos de consultas no grafo  
+The following Cypher query finds other movies that share the same genre as a selected movie:
 
----
-
-## Exemplo de Consulta
-
-Consulta para encontrar filmes do mesmo gênero:
-
-
-
+```cypher
 MATCH (m:Movie)-[:IN_GENRE]->(g)<-[:IN_GENRE]-(rec:Movie)
-WHERE m.title = "Galaxy War" AND m <> rec
+WHERE m.title = "Galaxy War"
+  AND m <> rec
 RETURN rec.title
+```
 
+## Business Queries
 
----
+The graph was tested with queries representing common use cases for a streaming platform.
 
-## Objetivo do Projeto
+### 1. Highest-Rated Movies
 
-Demonstrar como a modelagem em grafos pode ser utilizada para representar dados complexos e apoiar sistemas de recomendação em plataformas de streaming.
+Returns movies with the highest average user ratings.
 
+### 2. History-Based Recommendations
 
+Finds movies watched by users who also watched a selected title.
 
-## Modelo do Grafo
+### 3. Movies by Genre
 
-O diagrama abaixo representa o modelo de dados utilizado no projeto.
+Lists movies belonging to a specific genre.
 
-![Modelo do Grafo](images/graph_model.png)
+### 4. Movies by Actor
 
----
+Returns movies associated with a selected actor.
 
-## Autor
+### 5. Movies by Director
 
-Projeto desenvolvido como atividade de modelagem de banco de dados em grafos utilizando Neo4j.
+Lists movies associated with a selected director.
 
+## Learning Outcomes
 
+Through this project, I practiced:
 
-## Queries de Negócio
+* Graph database modeling
+* Nodes and relationships
+* Cypher query syntax
+* Constraints
+* Data relationships and traversal
+* Basic recommendation use cases
+* Structuring a graph database project
 
-O modelo foi testado com algumas consultas que simulam funcionalidades de um sistema de recomendação.
+## Graph Model
 
-### 1. Filmes mais bem avaliados
+The following diagram represents the data model used in the project.
 
-Consulta que retorna os filmes com maior média de avaliação dos usuários.
+![Graph Model](images/graph_model.png)
 
-### 2. Recomendação baseada em histórico
+## Project Context
 
-Busca filmes assistidos por usuários que também assistiram determinado título.
+This repository was developed as part of a **DIO bootcamp learning activity**.
 
-### 3. Filmes por gênero
+It represents practical experience with Neo4j and graph data modeling. While Neo4j is not my current primary area of specialization, the project contributed to my understanding of databases, data relationships, and analytical thinking.
 
-Permite listar filmes pertencentes a um gênero específico.
+## Author
 
-### 4. Filmes de um ator
+**Ishad Lima**
 
-Consulta que retorna todos os filmes de um determinado ator.
-
-### 5. Filmes por diretor
-
-Lista diretores e seus respectivos filmes.
+Aspiring Data Analyst focused on **Business Intelligence, Data Analytics, Excel, Power BI, SQL, and Python**.
